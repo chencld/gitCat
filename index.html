@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>github</title>
+    <style>
+     .cat {
+        width:256px;height: 256px;
+        position: relative;
+      }
+      .cat img{position: absolute;width:256px;height: 256px;left: 0;top: 0;z-index: 1;}
+      .cat #myCanvas{position:relative;z-index:100;}
+      .cat #myCanvas2{position:relative;z-index:100;}
+      .cat .hid{display: none;}
+      
+
+      @-webkit-keyframes myfirst /* Safari and Chrome */
+        {
+        0%   {  -webkit-transform: rotate(180deg);   /* Safari and Chrome */
+              }
+        25%  {      
+            -webkit-transform: rotate(180deg);   /* Safari and Chrome */
+             }
+        50%  { 
+            -webkit-transform: rotate(180deg);   /* Safari and Chrome */
+        }
+        75%  { 
+            -webkit-transform: rotate(180deg);   /* Safari and Chrome */
+        }
+        100% { 
+            -webkit-transform: rotate(180deg);   /* Safari and Chrome */
+        }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cat">
+   <canvas id="myCanvas" class="hid"></canvas>
+   <canvas id="myCanvas2"></canvas>
+    <img src="github.png" />
+</div>
+
+
+<script type="text/javascript">
+    var can = document.getElementById('myCanvas');
+    can.width=256;
+    can.height=256;
+    var cxt = can.getContext('2d');
+
+    cxt.beginPath();
+    cxt.strokeStyle="#fff";
+    cxt.lineWidth = 2;
+    cxt.arc(100,120,12,1.15*Math.PI,1.85*Math.PI);
+    cxt.stroke();
+
+    cxt.beginPath();
+    cxt.strokeStyle="#fff";
+    cxt.lineWidth = 2;
+    cxt.arc(165,120,12,1.15*Math.PI,1.85*Math.PI);
+    cxt.stroke();
+
+    cxt.beginPath();
+    cxt.strokeStyle="#fff";
+    cxt.lineWidth = 2;
+    cxt.arc(132,142,16,0.15*Math.PI,0.85*Math.PI);
+    cxt.stroke();
+
+    var can2 = document.getElementById('myCanvas2');
+    can2.width=256;
+    can2.height=256;
+    var cxt2 = can2.getContext('2d');
+
+    cxt2.beginPath();
+    cxt2.strokeStyle="#fff";
+    cxt2.lineWidth = 2;
+    cxt2.moveTo(90,120);
+    cxt2.lineTo(110,120);
+    cxt2.stroke();
+
+    cxt2.beginPath();
+    cxt2.strokeStyle="#fff";
+    cxt2.lineWidth = 2;
+    cxt2.moveTo(155,120);
+    cxt2.lineTo(175,120);
+    cxt2.stroke();
+
+    cxt2.beginPath();
+    cxt2.strokeStyle="#fff";
+    cxt2.lineWidth = 2;
+    cxt2.moveTo(122,156);
+    cxt2.lineTo(142,156);
+    cxt2.stroke();
+    setInterval(function(){
+       if(can.className == "hid"){can.className="";can2.className="hid"}
+       else{can.className="hid";can2.className=""}
+    },1000)
+</script>
+    
+</body>
+</html>
